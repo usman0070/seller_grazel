@@ -312,7 +312,8 @@ const Dashboard = () => {
                         <td>
                           ₹
                           {item?.products?.reduce((acc, pro) => {
-                            return acc + pro?.quantity * pro?.price;
+                            // return acc + pro?.quantity * pro?.price;
+                            return acc + Number(pro?.price);
                           }, 0)}
                         </td>
                         <td className="capitalize">

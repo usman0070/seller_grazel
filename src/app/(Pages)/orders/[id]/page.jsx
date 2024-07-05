@@ -61,7 +61,8 @@ const OrderDetails = () => {
   }, []);
   async function onUpdateStatus() {
     if (!status) return;
-    if(status === order?.status) return toast.error(`Order is already in this state`)
+    if (status === order?.status)
+      return toast.error(`Order is already in this state`);
     let formdata = new FormData();
     formdata.append("status", status);
     try {
@@ -128,9 +129,11 @@ const OrderDetails = () => {
                       <FaMoneyCheckDollar className="h-[22px] w-[22px]" />₹
                       {order?.orderProducts?.reduce((acc, item) => {
                         if (item?.discounted_price) {
-                          return acc + item?.discounted_price * item?.quantity;
+                          // return acc + item?.discounted_price * item?.quantity;
+                          return acc + Number(item?.discounted_price);
                         } else {
-                          return acc + item?.price * item?.quantity;
+                          // return acc + item?.price * item?.quantity;
+                          return acc + Number(item?.price);
                         }
                       }, 0)}
                     </div>
@@ -212,7 +215,10 @@ const OrderDetails = () => {
                 ))}
               </div>
             </div>
-            <button className="h-[50px] font-[500] rounded-[8px] text-white px-[20px] lg:px-[70px] bg-[#FE4242] mt-[25px]" onClick={showModal}>
+            <button
+              className="h-[50px] font-[500] rounded-[8px] text-white px-[20px] lg:px-[70px] bg-[#FE4242] mt-[25px]"
+              onClick={showModal}
+            >
               Update Order
             </button>
           </div>

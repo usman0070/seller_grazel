@@ -33,7 +33,8 @@ const CustomersDetails = () => {
   function totalCostOrder() {
     return singleOrder
       ?.flatMap((order) => order.products)
-      .reduce((acc, pro) => acc + pro.price * pro.quantity, 0);
+      .reduce((acc, pro) => acc + Number(pro.price), 0);
+    // .reduce((acc, pro) => acc + pro.price * pro.quantity, 0);
   }
   console.log(totalCostOrder());
   function completedOrder() {
@@ -115,7 +116,7 @@ const CustomersDetails = () => {
                   <div className="flex flex-col sm:flex-row gap-3 justify-between items-center">
                     <p className="text-[20px] font-[600]">Recent Orders</p>
                   </div>
-                  {singleOrder?.map((item) => (
+                  {singleOrder?.map((item, index) => (
                     <div key={item?.id} className="flex gap-5">
                       <Image
                         alt=""
@@ -145,10 +146,10 @@ const CustomersDetails = () => {
                             )}
                           </p>
                           <p className="text-[var(--text-color-body)] text-[11px] ps-[15px]">
-                            Qty:
-                            {item?.products?.reduce((acc, pro) => {
+                            Qty: 1
+                            {/* {item?.products?.reduce((acc, pro) => {
                               return acc + Number(pro?.quantity);
-                            }, 0)}
+                            }, 0)} */}
                           </p>
                         </div>
                       </div>

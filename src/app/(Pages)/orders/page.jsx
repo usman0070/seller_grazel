@@ -168,7 +168,10 @@ const Orders = () => {
                           <td>
                             ₹
                             {item?.products?.reduce((acc, pro) => {
-                              return acc + Number(pro?.quantity) * Number(pro?.price);
+                              // return (
+                              //   acc + Number(pro?.quantity) * Number(pro?.price)
+                              // );
+                              return acc + Number(pro?.price);
                             }, 0)}
                           </td>
                           <td>{item?.date}</td>
@@ -235,7 +238,8 @@ const Orders = () => {
                           <td>
                             ₹
                             {item?.products?.reduce((acc, pro) => {
-                              return acc + pro?.quantity * pro?.price;
+                              // return acc + pro?.quantity * pro?.price;
+                              return acc + Number(pro?.price);
                             }, 0)}
                           </td>
                           <td>{item?.date}</td>
@@ -293,7 +297,8 @@ const Orders = () => {
                           <td>
                             ₹
                             {item?.products?.reduce((acc, pro) => {
-                              return acc + pro?.quantity * pro?.price;
+                              // return acc + pro?.quantity * pro?.price;
+                              return acc + Number(pro?.price);
                             }, 0)}
                           </td>
                           <td>{item?.date}</td>
@@ -341,7 +346,8 @@ const Orders = () => {
                           <td>
                             ₹
                             {item?.products?.reduce((acc, pro) => {
-                              return acc + pro?.quantity * pro?.price;
+                              // return acc + pro?.quantity * pro?.price;
+                              return acc + Number(pro?.price);
                             }, 0)}
                           </td>
                           <td>{item?.date}</td>
